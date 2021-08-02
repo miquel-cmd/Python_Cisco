@@ -55,4 +55,4 @@ for i in array_json:
 		print('error', str(e))
 		router_connection.disconnect()
 		continue
-print(f"El proceso ha tardardo: {time.time()-start_process}")
+print(f"El proceso ha tardardo un tiempo de: {time.time()-start_process}")
