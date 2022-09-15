@@ -2,4 +2,6 @@
 *.txt
 data.csv
 *.csv
+*.zip
+#Carpetas
 .venv
