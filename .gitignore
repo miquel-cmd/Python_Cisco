@@ -3,5 +3,8 @@
 data.csv
 *.csv
 *.zip
+
+#Not ignore
+!requeriments.txt
 #Carpetas
 .venv
