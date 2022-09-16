@@ -15,6 +15,9 @@ The type is the connection option and could be one of the following options:
 
 Example:
 If yoy want to review connectivity for 1.1.1.1 (telnet) and 2.2.2.2 (ssh) the input.csv file should be look like:
+
 ip,username,password,type
+
 1.1.1.1,username,password,cisco_ios
+
 2.2.2.2,username1,password2,cisco_ios_telnet
