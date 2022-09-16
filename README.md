@@ -7,12 +7,14 @@ The CSV input File must have the following header:
 
 "ip,username,password,type"
 
-Example:
-
-
 The type is the connection option and could be one of the following options:
 
 *Telnet: cisco_ios_telnet
 
 *ssh: cisco_ios
 
+Example:
+If yoy want to review connectivity for 1.1.1.1 (telnet) and 2.2.2.2 (ssh) the input.csv file should be look like:
+ip,username,password,type
+1.1.1.1,username,password,cisco_ios
+2.2.2.2,username1,password2,cisco_ios_telnet
