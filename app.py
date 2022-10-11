@@ -35,6 +35,7 @@ for i in array_json:
   		'host': i["ip"],
 		'username': i["username"],
 		'password': i["password"],
+		'secret':i["password"],
 		'verbose':True
 	}
 	print(dev1)
@@ -44,18 +45,19 @@ for i in array_json:
 		router_connection = ConnectHandler(**dev1)
 		router_connection.enable()
 		hostname = router_connection.send_command('show run | i hostname',expect_string='#')
-		#print('hostname: ',hostname)
+		print('hostname: ',hostname)
 		prompt=hostname.split(' ')[1].split('\n')[0].strip(" ")+'#'
-		#print('prompt:', prompt, 'hay salto')
+		print('prompt:', prompt, 'hay salto')
 		router_connection.send_command('term datadump', expect_string='#')
-		#showrun=router_connection.send_command('show running', expect_string=prompt)
+		showrun=router_connection.send_command('show running', expect_string=prompt)
 		#showinv=router_connection.send_command('show inventory',expect_string=prompt)
 		#showver=router_connection.send_command('show version',expect_string=prompt)
 		router_connection.disconnect()
-		#file=prompt
-		#f= open(prompt+i["ip"]+'.txt',"w")
-		#f.write("show running\n" + showrun +"\n\nshow inventory\n" + showinv + "\n\nshow version \n"+showver)
-		#f.close()
+		file=prompt
+		data= open(prompt+i["ip"]+'.txt',"w")
+		#data.write("show running\n" + showrun +"\n\nshow inventory\n" + showinv + "\n\nshow version \n"+showver)
+		data.write("show running\n" + showrun)
+		data.close()
 		f.write( i["ip"] + "," + "OK" +","+str(status.is_alive)+"\n")
 		#print(f"Router {hostname} tarda:{time.time()-start_equipment}\n")
 	except Exception as e:
